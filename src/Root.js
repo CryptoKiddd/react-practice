@@ -14,6 +14,9 @@ const Root = () => {
         <Link to='/fetchusers'>
         <h1> Fetch User</h1>
         </Link>
+        <Link to='/reactquery'>
+        <h1> Fetch With React Query</h1>
+        </Link>
 
     </div>
   )
