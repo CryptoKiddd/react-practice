@@ -17,6 +17,9 @@ const Root = () => {
         <Link to='/reactquery'>
         <h1> Fetch With React Query</h1>
         </Link>
+        <Link to='/dotthepage'>
+        <h1> Dot the Page</h1>
+        </Link>
 
     </div>
   )

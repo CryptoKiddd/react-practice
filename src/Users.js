@@ -11,7 +11,6 @@ const fetchRandomData = async (page) => {
 const Users = () => {
     const [counter, setCounter] = useState(1)
     const [userInfos, setUserInfos] = useState([])
-    const [randomUserDataJson, setRandomUserDataJson] = useState("")
 
     useEffect(() => {
         (async () => {

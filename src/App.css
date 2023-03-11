@@ -105,3 +105,25 @@
 .calc-modal h3{
   color: white;
 }
+
+.dot-container{
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+.dot{
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  background-color: rgb(133, 182, 231);
+  border-radius: 50%;
+}
+.select-color-container{
+  height: 100vh;
+  width: 150px;
+}
+.dot-page-container{
+  display: flex;
+  gap: 50px;
+}

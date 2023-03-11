@@ -12,6 +12,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { QueryClient,QueryClientProvider } from '@tanstack/react-query';
+import Dot from './Dot';
 
 
 
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
   { path: 'tipcalculator', element: <TipsCalculator /> },
   { path: 'fetchusers', element: <Users /> },
   { path: 'reactquery', element: <FetchWithReactQuery /> },
+  { path: 'dotthepage', element: <Dot /> },
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

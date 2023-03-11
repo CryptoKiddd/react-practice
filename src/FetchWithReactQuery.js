@@ -4,7 +4,10 @@ const FetchWithReactQuery = () => {
     const {data } = useQuery(['cats'], async() => { 
         const { data } = await axios.get('https://catfact.ninja/fact') 
         return data
-    })
+    });
+
+
+   
 
 
     return (
