@@ -8,56 +8,50 @@ const MemoryGame = () => {
         [6, 2, 6, 7],
     ])
     const [revealedGrid, setRevealedGrid] = useState(new Array(grid.length).fill("").map(el => new Array(grid[0].length).fill(false)))
-    const [previuousClick, setPreviousClick] = useState({row:undefined,col:undefined,clicked:false})
+    const [previousClick, setPreviousClick] = useState(undefined)
     function revealAndMatch(rowidx, colidx) {
+        if(revealedGrid[rowidx][colidx])return
         const clickedNumber = grid[rowidx][colidx]
-        if (previuousClick.clicked) {
-            if (grid[previuousClick.row][previuousClick.col] !== clickedNumber) {
+        if (previousClick) {
+            const previousClickedkNumber = grid[previousClick.row][previousClick.col]
+            if( previousClickedkNumber !== clickedNumber) {
                 setRevealedGrid(prev => {
                     const updatedReveleadGrid = [...prev]
-                    updatedReveleadGrid[rowidx][colidx] = true
-                    updatedReveleadGrid[previuousClick.row][previuousClick.col] = true
+                    updatedReveleadGrid[rowidx][colidx] = true ///show  clicked number
+                    updatedReveleadGrid[previousClick.row][previousClick.col] = true //show prev clicked number
                     return updatedReveleadGrid
                 })
+                  //hide both after a second beacause  they dont match
                 setTimeout(() => {
+                    console.log(previousClick)
                     setRevealedGrid(prev => {
                         const updatedReveleadGrid = [...prev]
                         updatedReveleadGrid[rowidx][colidx] = false
-                        updatedReveleadGrid[previuousClick.row][previuousClick.col] = false
+                        updatedReveleadGrid[previousClick.row][previousClick.col] = false
                         return updatedReveleadGrid
                     })
-                    setPreviousClick(prev=>{
-                        return(
-                            {...prev,row:undefined,col:undefined, clicked:false }
-                        )
-                    })
+                    setPreviousClick(undefined)
 
-                }, 1000)
+                }, 100)
+                
             }else{
                 setRevealedGrid(prev => {
                     const updatedReveleadGrid = [...prev]
                     updatedReveleadGrid[rowidx][colidx] = true
-                    updatedReveleadGrid[previuousClick.row][previuousClick.col] = true
+                    updatedReveleadGrid[previousClick.row][previousClick.col] = true
                     return updatedReveleadGrid
                 })
-                setPreviousClick(prev=>{
-                    return(
-                        {...prev,row:undefined,col:undefined, clicked:false }
-                    )
-                })
+                setPreviousClick(undefined)
             }
 
-        } else {
+        }else{
+            setPreviousClick({row:rowidx,col:colidx})
             setRevealedGrid(prev => {
                 const updatedReveleadGrid = [...prev]
                 updatedReveleadGrid[rowidx][colidx] = true
                 return updatedReveleadGrid
             })
-            setPreviousClick(prev=>{
-                return(
-                    {...prev,row:rowidx,col:colidx, clicked:true }
-                )
-            })
+            
         }
 
     }
@@ -66,7 +60,7 @@ const MemoryGame = () => {
             {grid.map((row, rowidx) => (
                 <div key={rowidx} className='memory-game-row'>
                     {row.map((col, colidx) => (
-                        <div onClick={() => revealAndMatch(rowidx, colidx)} key={colidx} className='memory-game-col'>
+                        <div onClick={() => revealAndMatch(rowidx, colidx)} key={colidx} className={'memory-game-col '+(revealedGrid[rowidx][colidx]?'revealed':'')}>
                             {revealedGrid[rowidx][colidx] ? <p>{col}</p>  : ""}
                         </div>
                     ))}

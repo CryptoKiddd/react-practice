@@ -154,3 +154,8 @@
   font-size: 38px;
   font-weight: bold;
 }
+.revealed{
+  pointer-events: disabled;
+  background-color: green;
+  cursor: default;
+}
