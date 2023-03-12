@@ -1,16 +1,13 @@
-
-@keyframes Moveout{
+@keyframes Moveout {
   0% {
-    transform: translate(0px)
+    transform: translate(0px);
   }
- 50%{
-    transform: translate(5px)
+  50% {
+    transform: translate(5px);
   }
-  100%{
-    transform: translate(0px)
-
+  100% {
+    transform: translate(0px);
   }
-
 }
 .App {
   text-align: left;
@@ -19,47 +16,42 @@
   margin-left: 50px;
   display: flex;
   gap: 20px;
-  
-
 }
-.Entry{
-  animation: Moveout  350ms linear  ;
+.Entry {
+  animation: Moveout 350ms linear;
 }
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-.tree-btn{
-  border: none; 
+.tree-btn {
+  border: none;
   background: none;
   border: 1px solid rgb(206, 170, 241);
   padding: 5px 12px;
   margin-bottom: 5px;
   border-radius: 2px;
-
 }
 
 /* CALCUALTOR */
-.calc{
+.calc {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0;
   position: relative;
 }
-.calc-wrapper{
+.calc-wrapper {
   padding: 10px;
- display: flex;
- justify-content: center;
- align-items: center;
- max-width: 500px;
- width: 100%;
- flex-wrap: wrap;
- gap: 3px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 3px;
 }
-.calc-choice{
- 
+.calc-choice {
   width: 200px;
   background-color: rgb(0, 166, 255);
   color: white;
@@ -70,21 +62,20 @@
   height: 30px;
   cursor: pointer;
 }
-.calc-choice:hover{
+.calc-choice:hover {
   transform: scale(1.03);
-  background-color:  rgb(15, 125, 184);
-  
+  background-color: rgb(15, 125, 184);
 }
 .calc button {
   width: 200px;
   height: 30px;
   border: none;
-  background-color:rgb(0, 166, 255) ;
+  background-color: rgb(0, 166, 255);
   border-radius: 2px;
   color: white;
   font-weight: bold;
 }
-.calc-modal{
+.calc-modal {
   position: absolute;
   padding: 10px;
   width: 500px;
@@ -95,35 +86,71 @@
   justify-content: end;
   gap: 20px;
   border-radius: 2px;
-  
+
   background-color: rgb(118, 224, 117);
   top: 26%;
   left: 50%;
   transform: translate(-50%);
-  box-shadow: 0px 0px 7px 4px rgba(119, 176, 233, 0.101)
+  box-shadow: 0px 0px 7px 4px rgba(119, 176, 233, 0.101);
 }
-.calc-modal h3{
+.calc-modal h3 {
   color: white;
 }
 
-.dot-container{
+.dot-container {
   height: 100vh;
   text-align: center;
   position: relative;
   width: 100%;
 }
-.dot{
+.dot {
   position: absolute;
   width: 230px;
   height: 230px;
   background-color: rgb(133, 182, 231);
   border-radius: 50%;
 }
-.select-color-container{
+.select-color-container {
   height: 100vh;
   width: 150px;
 }
-.dot-page-container{
+.dot-page-container {
   display: flex;
   gap: 50px;
+}
+
+/* ////////////MEMORY GAME////////// */
+
+.memory-game-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  height: 100vh;
+  width: 100%;
+}
+.memory-game-row {
+  display: flex;
+  gap: 10px;
+}
+.memory-game-col {
+  width: 150px;
+  height: 150px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  transition: 250ms ease;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.memory-game-col:hover {
+  scale: 1.1;
+}
+.memory-game-col p {
+  font-size: 38px;
+  font-weight: bold;
 }

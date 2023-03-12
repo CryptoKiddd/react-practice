@@ -20,6 +20,9 @@ const Root = () => {
         <Link to='/dotthepage'>
         <h1> Dot the Page</h1>
         </Link>
+        <Link to='/memorygame'>
+        <h1> Memory Game</h1>
+        </Link>
 
     </div>
   )
