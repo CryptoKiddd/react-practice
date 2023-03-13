@@ -2,12 +2,11 @@ import { useState } from 'react'
 
 const MemoryGame = () => {
     const [grid, setGrid] = useState([
-        // [0, 4, 3, 2],
-        // [1, 1, 3, 5],
-        // [0, 7, 5, 4],
-        // [6, 2, 6, 7],
-        [1,1],
-        [0,0]
+        [0, 4, 3, 2],
+        [1, 1, 3, 5],
+        [0, 7, 5, 4],
+        [6, 2, 6, 7],
+        
     ])
     const [revealedGrid, setRevealedGrid] = useState(new Array(grid.length).fill("").map(el => new Array(grid[0].length).fill(false)))
     const [previousClick, setPreviousClick] = useState(undefined)
@@ -79,7 +78,7 @@ const MemoryGame = () => {
                     ))}
                 </div>
             ))}
-            <button onClick={()=>setRevealedGrid(new Array(grid.length).fill("").map(el => new Array(grid[0].length).fill(false)))} >Retry</button>
+            <button className='memory-game-retrybtn' onClick={()=>setRevealedGrid(new Array(grid.length).fill("").map(el => new Array(grid[0].length).fill(false)))} >Retry</button>
         </div>
     )
 }

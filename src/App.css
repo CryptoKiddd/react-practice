@@ -159,3 +159,21 @@
   background-color: green;
   cursor: default;
 }
+.memory-game-retrybtn{
+  border: none;
+  background-color: rgb(204, 157, 249);
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: white;
+  font-size: 25px;
+  margin-top: 15px;
+  transition: 250ms;
+}
+.memory-game-retrybtn:hover{
+  background-color: rgb(189, 133, 240);
+  scale: 1.05;
+}
