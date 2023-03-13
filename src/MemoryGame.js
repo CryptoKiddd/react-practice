@@ -2,15 +2,19 @@ import { useState } from 'react'
 
 const MemoryGame = () => {
     const [grid, setGrid] = useState([
-        [0, 4, 3, 2],
-        [1, 1, 3, 5],
-        [0, 7, 5, 4],
-        [6, 2, 6, 7],
+        // [0, 4, 3, 2],
+        // [1, 1, 3, 5],
+        // [0, 7, 5, 4],
+        // [6, 2, 6, 7],
+        [1,1],
+        [0,0]
     ])
     const [revealedGrid, setRevealedGrid] = useState(new Array(grid.length).fill("").map(el => new Array(grid[0].length).fill(false)))
     const [previousClick, setPreviousClick] = useState(undefined)
     function revealAndMatch(rowidx, colidx) {
-        if(revealedGrid[rowidx][colidx])return
+      
+        
+        if(revealedGrid[rowidx][colidx])return;
         const clickedNumber = grid[rowidx][colidx]
         if (previousClick) {
             const previousClickedkNumber = grid[previousClick.row][previousClick.col]
@@ -39,6 +43,15 @@ const MemoryGame = () => {
                     const updatedReveleadGrid = [...prev]
                     updatedReveleadGrid[rowidx][colidx] = true
                     updatedReveleadGrid[previousClick.row][previousClick.col] = true
+                    const flattenRevealedGrid = revealedGrid.flat().every(el=>el)
+                    console.log(flattenRevealedGrid)
+                    if(flattenRevealedGrid){
+                        setTimeout(() => {
+                            
+                            window.alert("You won")
+                        }, 1000);
+                        console.log('entry in won point')
+                    }
                     return updatedReveleadGrid
                 })
                 setPreviousClick(undefined)
