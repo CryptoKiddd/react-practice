@@ -79,6 +79,7 @@ const MemoryGame = () => {
                     ))}
                 </div>
             ))}
+            <button onClick={()=>setRevealedGrid(new Array(grid.length).fill("").map(el => new Array(grid[0].length).fill(false)))} >Retry</button>
         </div>
     )
 }
