@@ -1,13 +1,12 @@
 import { useState } from 'react'
-
+const sasuke ="https://i1.sndcdn.com/avatars-WGz92y1Bty86phdv-zduzjA-t500x500.jpg"
+const naruto = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-AbUXU56n36-_X6w88-E0ET6qOsWuJsmqBw&usqp=CAU"
+const grid= [
+    [sasuke,naruto],
+    [naruto,sasuke]
+]
 const MemoryGame = () => {
-    const [grid, setGrid] = useState([
-        [0, 4, 3, 2],
-        [1, 1, 3, 5],
-        [0, 7, 5, 4],
-        [6, 2, 6, 7],
-        
-    ])
+  
     const [revealedGrid, setRevealedGrid] = useState(new Array(grid.length).fill("").map(el => new Array(grid[0].length).fill(false)))
     const [previousClick, setPreviousClick] = useState(undefined)
     function revealAndMatch(rowidx, colidx) {
@@ -24,7 +23,7 @@ const MemoryGame = () => {
                     updatedReveleadGrid[previousClick.row][previousClick.col] = true //show prev clicked number
                     return updatedReveleadGrid
                 })
-                  //hide both after a second beacause  they dont match
+                  //hide both after a second beacause if  they dont match
                 setTimeout(() => {
                     console.log(previousClick)
                     setRevealedGrid(prev => {
@@ -71,14 +70,14 @@ const MemoryGame = () => {
         <div className='memory-game-container'>
             {grid.map((row, rowidx) => (
                 <div key={rowidx} className='memory-game-row'>
-                    {row.map((col, colidx) => (
+                    {row.map((img, colidx) => (
                         <div onClick={() => revealAndMatch(rowidx, colidx)} key={colidx} className={'memory-game-col '+(revealedGrid[rowidx][colidx]?'revealed':'')}>
-                            {revealedGrid[rowidx][colidx] ? <p>{col}</p>  : ""}
+                            {revealedGrid[rowidx][colidx] ? <img className='game-image' alt='s' src={img} />  : ""}
                         </div>
                     ))}
                 </div>
             ))}
-            <button className='memory-game-retrybtn' onClick={()=>setRevealedGrid(new Array(grid.length).fill("").map(el => new Array(grid[0].length).fill(false)))} >Retry</button>
+            {/* <button className='memory-game-retrybtn' onClick={()=>setRevealedGrid(new Array(grid.length).fill("").map(el => new Array(grid[0].length).fill(false)))} >Retry</button> */}
         </div>
     )
 }
